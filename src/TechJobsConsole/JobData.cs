@@ -137,6 +137,64 @@ namespace TechJobsConsole
             valueBuilder.Clear();
 
             return rowValues.ToArray();
+
         }
+
+        public static List<Dictionary<string, string>> FindByValue(string searchValue)
+        {
+            // load data, if not already loaded (Is this necessary to copy from other method?)
+            LoadData();
+                
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> row in AllJobs)
+            {
+                if (row.ContainsValue(searchValue) == true)
+                {
+                    jobs.Add(row);
+                    
+
+                    //foreach (KeyValuePair<string, string> info in row)
+                //{
+
+                    //if (info.Value.Contains(searchValue))
+                    //{
+
+                        //if (jobs.ContainsKey(searchValue) != true) // this line didn't work.
+                        //{
+                        //    jobs.Add(row);
+                        //}
+                    //}
+                        
+// **************Above has the working code.  Note sure why the current code isn't working.
+                        
+                }
+
+
+                // if (row.ContainsValue(searchValue))
+                // {
+                    // jobs.Add(row);
+                // }
+                
+
+                // foreach (KeyValuePair<string, string> info in row)
+                // {
+                    // if (info.Value == searchValue) {
+                        // jobs.Add(row);
+                    // }
+                     
+                    // else if (info.Key == searchValue)
+                    // {
+                    //  jobs.Add(row);
+                    // }
+                                    
+                // }
+            }
+
+            return jobs;
+        }
+
+
+
     }
 }
