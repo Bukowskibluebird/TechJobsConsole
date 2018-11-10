@@ -49,7 +49,7 @@ namespace TechJobsConsole
             {
                 string aValue = row[column];
 
-                if (aValue.Contains(value))
+                if (aValue.ToUpper().Contains(value.ToUpper()))
                 {
                     jobs.Add(row);
                 }
@@ -149,30 +149,16 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                //if (row.ContainsValue(searchValue) == true)
-                //{
-                    //jobs.Add(row);
-                    
-
                 foreach (KeyValuePair<string, string> info in row)
                 {
-                    if (info.Value.Contains(searchValue))
+                    if (info.Value.ToUpper().Contains(searchValue.ToUpper()))
                     {
-
-                        // if (jobs.Contains(searchValue) != true) // this line didn't work.
-                        //{
                         jobs.Add(row);
-                        break;    
-                        //}
+                        break;
+                        
                     }
-
-                    // **************Above has the working code.  Note sure why the current code isn't working.
-
-                
-
+                   
                 }
-
-
 
             }
 

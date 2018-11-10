@@ -63,25 +63,37 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        List<Dictionary<string, string>> x = JobData.FindByValue(searchTerm);
-
-                        foreach (Dictionary<string, string> dict in x)
+                        if (searchTerm == "")
                         {
-                            Console.WriteLine("*********");
-
-                            foreach (KeyValuePair<string, string> info in dict)
-                            {
-                                Console.WriteLine(info.Key + ":" + " " + info.Value);
-                            }
-
+                            Console.WriteLine("No results");
                         }
 
+                        else
+                        {
+                            List<Dictionary<string, string>> x = JobData.FindByValue(searchTerm);
+
+                            foreach (Dictionary<string, string> dict in x)
+                            {
+                                Console.WriteLine("*********");
+
+                                foreach (KeyValuePair<string, string> info in dict)
+                                {
+                                    Console.WriteLine(info.Key + ":" + " " + info.Value);
+                                }
+
+                            }
+                        }
                         
 
 
                        
                                     // ("Search all fields not yet implemented."); // call FindByValue method here
                                 }
+                    else if (searchTerm == "")
+                    {
+                        Console.WriteLine("No results");
+                    }
+
                     else
                     {
                         searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
