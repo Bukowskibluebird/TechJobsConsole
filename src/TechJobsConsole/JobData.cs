@@ -149,46 +149,31 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                if (row.ContainsValue(searchValue) == true)
-                {
-                    jobs.Add(row);
+                //if (row.ContainsValue(searchValue) == true)
+                //{
+                    //jobs.Add(row);
                     
 
-                    //foreach (KeyValuePair<string, string> info in row)
-                //{
+                foreach (KeyValuePair<string, string> info in row)
+                {
+                    if (info.Value.Contains(searchValue))
+                    {
 
-                    //if (info.Value.Contains(searchValue))
-                    //{
-
-                        //if (jobs.ContainsKey(searchValue) != true) // this line didn't work.
+                        // if (jobs.Contains(searchValue) != true) // this line didn't work.
                         //{
-                        //    jobs.Add(row);
+                        jobs.Add(row);
+                        break;    
                         //}
-                    //}
-                        
-// **************Above has the working code.  Note sure why the current code isn't working.
-                        
+                    }
+
+                    // **************Above has the working code.  Note sure why the current code isn't working.
+
+                
+
                 }
 
 
-                // if (row.ContainsValue(searchValue))
-                // {
-                    // jobs.Add(row);
-                // }
-                
 
-                // foreach (KeyValuePair<string, string> info in row)
-                // {
-                    // if (info.Value == searchValue) {
-                        // jobs.Add(row);
-                    // }
-                     
-                    // else if (info.Key == searchValue)
-                    // {
-                    //  jobs.Add(row);
-                    // }
-                                    
-                // }
             }
 
             return jobs;
